@@ -1,11 +1,3 @@
----
-layout: post
-title: "Git学习笔记"
-date: 2017-08-24 12:57
-comments: true
-categories:[Git]
-tags:[学习笔记]
----
 
 ## 前言
 - 本文档笔记是本人通过学习[廖雪峰Git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)整理而来
@@ -135,9 +127,9 @@ git branch -d dev //删除分支 dev
 
 ## 分支合并时冲突解决
 当我们在两个分支上对同一个文件进行修改，并且修改的内容不一样，此时合并这两个分支时就会产生冲突
-![img](http://ovas9vc9a.bkt.clouddn.com/a432bb77-8466-442e-99cd-859ba52730ee.png)
+![img](http://ovas9vc9a.bkt.clouddn.com/a432bb77-8466-442e-99cd-859ba52730ee.png)<br>
 此时查看该修改的文件时，就会发现Git用```<<<<<<<```，```=======```，```>>>>>>>```标记出不同分支的内容，此时我们需要手动修改文件，删除Git的标记，然后将修改后的文件先添加到暂存区，然后提交到分支
-![img](http://ovas9vc9a.bkt.clouddn.com/ccdf2ba4-ce17-4c54-b347-63ec55776dc7.png)
+![img](http://ovas9vc9a.bkt.clouddn.com/ccdf2ba4-ce17-4c54-b347-63ec55776dc7.png)<br>
 提交成功后使用命令：```git log --graph --pretty=oneline --abbrev-commit```可以看到分支合并图
 
 ## 分支管理策略
@@ -170,7 +162,7 @@ git merge --no-ff -m 'merge with no-ff' dev //因为本次合并会生成一个c
 git checkout -b dev origin/dev
 ```
 这样你就可以继续在```dev```上修改，修改完之后还可以 ```push dev ```分支到远程库，但是如果你的小伙伴也``` push ```了一次到远程库，并且此时你和你的小伙伴都对同样的文件进行了修改，你现在试图推送该分支到远程库，结果出现
-![img](http://ovas9vc9a.bkt.clouddn.com/32e277ac-2e9b-4a17-bd62-d793ba27944d.png) 
+![img](http://ovas9vc9a.bkt.clouddn.com/32e277ac-2e9b-4a17-bd62-d793ba27944d.png) <br>
 推送失败，因为你的提交与你小伙伴的最新提交之间有冲突。此时根据提示我们先用```git pull ```把最新的提交从 ```origin/dev```抓取下来，然后在本地合并解决冲突后然后提交分支并且推送```dev```到远程库。有的时候，我们```git pull```也会失败，原因是因为没有指定本地 ```dev```  分支与远程```origin/dev``` 分支的链接。我们根据提示，设置链接
   设置的命令如提示:
 ```
