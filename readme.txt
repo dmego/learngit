@@ -5,4 +5,3 @@ Learning git is a happy thing
 Creating a new Branch is  quick and simple.
 Git is very  simple.
 
-
